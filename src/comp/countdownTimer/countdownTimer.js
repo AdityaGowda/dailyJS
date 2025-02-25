@@ -5,26 +5,24 @@ export default function CountDownTimer() {
   const [showHours, setShowHour] = useState("00");
   const [showMin, setShowMin] = useState("00");
   const [showSec, setShowSec] = useState("00");
-
   const setIntervalFunction = useRef(null);
 
+  // Divide totalSeconds by 3600 (60 min * 60 sec) to get the number of full hours.
   function convertSecondsIntoHours(totalSeconds) {
     let hours = Math.floor(totalSeconds / 3600);
-    // Divide totalSeconds by 3600 (60 min * 60 sec) to get the number of full hours.
     return `${String(hours).padStart(2, "0")}`;
   }
+
+  // Get the remaining seconds after extracting hours using (totalSeconds % 3600).
+  // Then, divide by 60 to get the number of full minutes.
   function convertSecondsIntoMin(totalSeconds) {
     let minutes = Math.floor((totalSeconds % 3600) / 60);
-    // Get the remaining seconds after extracting hours using (totalSeconds % 3600).
-    // Then, divide by 60 to get the number of full minutes.
-
     return `${String(minutes).padStart(2, "0")}`;
   }
 
+  // Get the remaining seconds after extracting hours and minutes using (totalSeconds % 60).
   function convertSecondsIntoSec(totalSeconds) {
     let seconds = totalSeconds % 60;
-    // Get the remaining seconds after extracting hours and minutes using (totalSeconds % 60).
-
     return `${String(seconds).padStart(2, "0")}`;
   }
 
@@ -43,19 +41,21 @@ export default function CountDownTimer() {
       });
     }, 1000);
   }
+
   //stop
   function stop() {
     clearInterval(setIntervalFunction.current);
     setIntervalFunction.current = null;
   }
-  //reset
 
+  //reset
   function reset() {
     stop();
     setCountDown(
       Number(showHours) * 3600 + Number(showMin) * 60 + Number(showSec)
     );
   }
+  
   //update time from input   and converting it to seconds
   function updateHour(e) {
     let value = Number(e.target.value) || 0;
@@ -119,3 +119,15 @@ export default function CountDownTimer() {
     </div>
   );
 }
+
+/*
+Extract hour--->
+Divide totalSeconds by 3600 (60 min * 60 sec) to get the full hours.
+
+Extract min--->
+(totalSeconds % 3600) → Removes full hours, keeping only the remaining seconds.
+... / 60 → Converts those remaining seconds into minutes.
+
+Extract sec--->
+totalSeconds % 60 → Gets the remaining seconds after removing hours and minutes.
+*/

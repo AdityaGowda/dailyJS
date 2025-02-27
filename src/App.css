@@ -56,6 +56,12 @@
 .justify-center {
   justify-content: center;
 }
+.justify-start {
+  justify-content: flex-start !important;
+}
+.justify-spacebetween{
+  justify-content: space-between;
+}
 .align-center {
   align-items: center;
 }
@@ -461,7 +467,9 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
+.width100 {
+  width: 100%;
+}
 .button-2 {
   background-color: rgba(51, 51, 51, 0.05);
   border-radius: 8px;
@@ -516,4 +524,25 @@
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+input[type="text"]::placeholder {
+  color: #aaa;
+  font-style: italic;
 }

@@ -59,6 +59,9 @@
 .justify-start {
   justify-content: flex-start !important;
 }
+.justify-spacebetween{
+  justify-content: space-between;
+}
 .align-center {
   align-items: center;
 }

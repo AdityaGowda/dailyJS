@@ -7,6 +7,7 @@ export default function NoteApp() {
     setStoreNote((pre) => {
       return [textInput, ...pre];
     });
+    setTextInput("");
   }
 
   return (
@@ -16,6 +17,8 @@ export default function NoteApp() {
           type="text"
           value={textInput}
           onChange={(e) => setTextInput(e.target.value)}
+          className="mr-5"
+          placeholder="Enter text here..."
         />
         <button type="submit" onClick={() => addToNote()} className="button-2">
           Add
@@ -25,7 +28,12 @@ export default function NoteApp() {
         <ul className="">
           {storeNote.length > 0 &&
             storeNote.map((v, i) => {
-              return <li>{v}</li>;
+              return (
+                <div className="flex  align-center justify-spacebetween">
+                  <li>{v}</li>
+                  <div className="button-2">R</div>
+                </div>
+              );
             })}
         </ul>
       </div>

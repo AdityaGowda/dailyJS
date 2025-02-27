@@ -59,7 +59,7 @@
 .justify-start {
   justify-content: flex-start !important;
 }
-.justify-spacebetween{
+.justify-spacebetween {
   justify-content: space-between;
 }
 .align-center {
@@ -492,11 +492,12 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  cursor: pointer;
 }
 
 .center-div {
   width: 300px;
-  height: 200px;
+
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -508,6 +509,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+  max-height: 300px;
 }
 
 .center-top-div {
@@ -545,4 +547,8 @@ input[type="text"]:focus {
 input[type="text"]::placeholder {
   color: #aaa;
   font-style: italic;
+}
+
+.pr-10 {
+  padding-right: 10px;
 }

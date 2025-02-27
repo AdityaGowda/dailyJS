@@ -4,14 +4,25 @@ export default function NoteApp() {
   const [textInput, setTextInput] = useState();
   const [storeNote, setStoreNote] = useState([]);
   function addToNote() {
+    if (textInput.trim() == "") {
+      return;
+    }
     setStoreNote((pre) => {
-      return [textInput, ...pre];
+      return [...pre, textInput];
     });
     setTextInput("");
   }
 
+  function deleteNote(index) {
+    setStoreNote((pre) => {
+      return pre.filter((_, i) => {
+        return i != index;
+      });
+    });
+  }
   return (
     <div className="center-div flex flex-col p-30 justify-start">
+      <p className="mb-20">Note App</p>
       <div className="flex justify-center">
         <input
           type="text"
@@ -24,19 +35,30 @@ export default function NoteApp() {
           Add
         </button>
       </div>
-      <div className="width100">
-        <ul className="">
-          {storeNote.length > 0 &&
-            storeNote.map((v, i) => {
+      {storeNote.length > 0 && (
+        <div
+          className="width100 pr-10 mt-25"
+          style={{ maxHeight: "100px", overflowY: "scroll" }}
+        >
+          <ul className="">
+            {storeNote.map((v, i) => {
               return (
-                <div className="flex  align-center justify-spacebetween">
+                <div className="flex  align-center justify-spacebetween my-10">
                   <li>{v}</li>
-                  <div className="button-2">R</div>
+                  <div
+                    className="button-2"
+                    onClick={() => {
+                      deleteNote(i);
+                    }}
+                  >
+                    R
+                  </div>
                 </div>
               );
             })}
-        </ul>
-      </div>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

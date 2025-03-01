@@ -7,14 +7,18 @@ export default function InfinityScroll() {
     fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
       .then((response) => response.json())
       .then((response) => {
-        setCardDetails((pre)=>{
-          return [...response.data,...pr]
-        })
+        setCardDetails((pre) => {
+          return [...response.data, ...pr];
+        });
       });
   }
   function handleScroll() {
-    if()
-    setPage((pre) => pre + 1);
+    console.log("pppp");
+    if (
+      window.innerHeight + document.documentElement.scrollTop + 1 >=
+      document.documentElement.scrollHeight
+    )
+      setPage((pre) => pre + 1);
   }
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

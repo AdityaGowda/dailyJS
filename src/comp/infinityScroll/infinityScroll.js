@@ -6,13 +6,20 @@ export default function InfinityScroll() {
   function getRestCountries(page = 1) {
     fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
       .then((response) => response.json())
-      .then((response) => {});
+      .then((response) => {
+        setCardDetails((pre)=>{
+          return [...response.data,...pr]
+        })
+      });
   }
-  function updateContent() {}
+  function handleScroll() {
+    if()
+    setPage((pre) => pre + 1);
+  }
   useEffect(() => {
-    getRestCountries();
-    window.onscroll();
-  });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="m-10">
       <div className="card">

@@ -9,6 +9,12 @@
   --font-4xl: 48px;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: auto;
+}
+
 /* Font Size Classes */
 .font-xs {
   font-size: var(--font-xs);
@@ -559,5 +565,13 @@ input[type="text"]::placeholder {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Assuming 'card-shadow' is a custom Tailwind class */
   cursor: pointer;
   background: rgb(0 0 0 / 31%);
-  margin: 0;
+  max-height: 200px;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.overFlowY {
+  overflow-y: scroll;
 }

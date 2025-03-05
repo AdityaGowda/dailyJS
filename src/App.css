@@ -9,11 +9,11 @@
   --font-4xl: 48px;
 }
 
-html,
+/* html,
 body {
   height: 100%;
   overflow: auto;
-}
+} */
 
 /* Font Size Classes */
 .font-xs {

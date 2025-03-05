@@ -9,9 +9,7 @@ import StopWatch from "./comp/stopwatch/stopwatch";
 function App() {
   return (
     <div className="App">
-
-      <ProgressBar />
-    
+      <InfinityScroll  />
     </div>
   );
 }

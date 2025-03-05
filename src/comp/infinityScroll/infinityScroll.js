@@ -4,7 +4,7 @@ export default function InfinityScroll() {
   const [getCardDetails, setCardDetails] = useState([]);
   const [spinner, setSpinner] = useState(false);
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   function getRestCountries(page = 1) {
     fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
       .then((response) => response.json())
@@ -15,26 +15,32 @@ export default function InfinityScroll() {
         });
       });
   }
-  // Function to detect scrolling and trigger loading of more data
   function handleScroll() {
-    if (
-      window.innerHeight + document.documentElement.scrollTop + 1 >=
-      document.documentElement.scrollHeight
-    )
+    //window.innerHeight -> The height of the visible part of the page (viewport).
+    // window.scrollY -> The number of pixels the page has been scrolled down.
+    //document.body.scrollHeight  -> The total height of the document, including both the visible and scrollable parts.
+    // +10 is added due to rounding errors in window.innerHeight + window.scrollY
+    // (Alternatively, we can use Math.round() to minimize precision issues)
+    if (window.innerHeight + window.scrollY + 1 >= document.body.scrollHeight) {
       setSpinner(true);
-    setPage((pre) => pre + 1);
+      setPage((pre) => (pre + 1) % 10);
+    }
   }
 
-  // Effect to add and clean up scroll event listener
+  // mount scroll event
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  //page update
   useEffect(() => {
     getRestCountries(page);
   }, [page]);
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col align-center  ">
+      <h1>&infin; Scroll</h1>
       <div className="m-10 flex wrap justify-center ">
         {getCardDetails.map((v, i) => {
           return (
@@ -44,8 +50,8 @@ export default function InfinityScroll() {
             </div>
           );
         })}
-        {spinner && <ImSpinner9 />}
       </div>
+      {spinner && <ImSpinner9 />}
     </div>
   );
 }

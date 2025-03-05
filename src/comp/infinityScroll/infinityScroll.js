@@ -15,6 +15,7 @@ export default function InfinityScroll() {
         });
       });
   }
+  // Function to detect scrolling and trigger loading of more data
   function handleScroll() {
     if (
       window.innerHeight + document.documentElement.scrollTop + 1 >=
@@ -23,6 +24,8 @@ export default function InfinityScroll() {
       setSpinner(true);
     setPage((pre) => pre + 1);
   }
+
+  // Effect to add and clean up scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

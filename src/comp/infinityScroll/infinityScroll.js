@@ -27,7 +27,7 @@ export default function InfinityScroll() {
     }
   }
 
-  // scroll event mount
+  // mount scroll event
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

@@ -310,8 +310,7 @@ body {
 }
 
 .center-div {
-  width: 300px;
-
+  width: 400px;
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -343,7 +342,7 @@ body {
 }
 
 input[type="text"] {
-  width: 100%;
+  width: 93%;
   max-width: 400px;
   padding: 10px 15px;
   font-size: 16px;
@@ -382,4 +381,24 @@ input[type="text"]::placeholder {
 
 .overFlowY {
   overflow-y: scroll;
+}
+.carouselWrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carouselContainer {
+  display: flex;
+  gap: 10px;
+  min-width: 100%;
+  white-space: nowrap;
+}
+
+.carouselImage {
+  flex: 0 0 100vw; /* Each image takes the full width of the viewport */
+  height: 500px;
+  object-fit: cover;
+  padding: 5px;
+  scroll-snap-align: center;
 }

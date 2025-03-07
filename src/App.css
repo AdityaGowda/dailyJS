@@ -310,7 +310,8 @@ body {
 }
 
 .center-div {
-  width: 400px;
+  width: 93%;
+  max-width: 400px;
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -401,4 +402,12 @@ input[type="text"]::placeholder {
   object-fit: cover;
   padding: 5px;
   scroll-snap-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.align-start {
+  align-items: start;
 }

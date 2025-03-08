@@ -53,6 +53,9 @@ body {
 .width50 {
   width: 50px;
 }
+.width50percent {
+  width: 50%;
+}
 .flex {
   display: flex;
 }
@@ -66,7 +69,7 @@ body {
   justify-content: flex-start !important;
 }
 .justify-spacebetween {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 .align-center {
   align-items: center;
@@ -76,13 +79,13 @@ body {
 }
 /* Margin Utility Classes */
 .m-0 {
-  margin: 0px;
+  margin: 0px !important;
 }
 .m-5 {
   margin: 5px;
 }
 .m-10 {
-  margin: 10px;
+  margin: 10px !important;
 }
 .m-15 {
   margin: 15px;
@@ -369,8 +372,8 @@ input[type="text"]::placeholder {
 
 .card {
   max-width: 300px;
-  border-radius: 5px; /* Equivalent to rounded-lg */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Assuming 'card-shadow' is a custom Tailwind class */
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   background: rgb(0 0 0 / 31%);
   max-height: 200px;
@@ -397,7 +400,7 @@ input[type="text"]::placeholder {
 }
 
 .carouselImage {
-  flex: 0 0 100vw; /* Each image takes the full width of the viewport */
+  flex: 0 0 100vw;
   height: 500px;
   object-fit: cover;
   padding: 5px;
@@ -410,4 +413,47 @@ input[type="text"]::placeholder {
 
 .align-start {
   align-items: start;
+}
+/* :::::::::::: accordion ::::::::::::: */
+.accordionContainer {
+  width: 93%;
+  max-width: 400px;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  max-height: 400px;
+  padding: 10px;
+  transition: max-height 0.5s ease-in;
+}
+
+.accordionDescContainer {
+  width: 93%;
+  max-width: 400px;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.accordionDescContainerOpen {
+  max-height: 400px;
+}
+
+.accordionPlusShow {
+  caret-color: transparent;
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(-270deg);
+}
+
+.accordionPlus {
+  caret-color: transparent;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(-180deg);
 }

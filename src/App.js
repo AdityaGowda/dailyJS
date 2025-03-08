@@ -1,4 +1,5 @@
 import "./App.css";
+import Accordion from "./comp/accordion/accordion";
 import Carousel from "./comp/carousel/carousel";
 import CountDownTimer from "./comp/countdownTimer/countdownTimer";
 import DigitalClock from "./comp/digitalClock/digitalClock";
@@ -12,7 +13,7 @@ import StopWatch from "./comp/stopwatch/stopwatch";
 function App() {
   return (
     <div className="App">
-      <StarRating />
+      <Accordion />
     </div>
   );
 }

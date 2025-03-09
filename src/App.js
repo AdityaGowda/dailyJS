@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename="/dailyJS">
         <Routes>
           <Route path="/" element={<Home componentNames={importNames} />} />
           {importNames.map((name, i) => {

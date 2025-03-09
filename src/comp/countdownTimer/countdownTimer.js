@@ -55,7 +55,7 @@ export default function CountDownTimer() {
       Number(showHours) * 3600 + Number(showMin) * 60 + Number(showSec)
     );
   }
-  
+
   //update time from input   and converting it to seconds
   function updateHour(e) {
     let value = Number(e.target.value) || 0;
@@ -85,25 +85,29 @@ export default function CountDownTimer() {
 
   return (
     <div className="center-div flex flex-col">
-      <div className="flex gap10">
+      <h1>Count down timer</h1>
+      <div className="flex gap10 align-center">
         <input
           type="text"
           className="font-3xl width50"
           value={showHours}
           onChange={(e) => updateHour(e)}
         />
+        <span>Hrs</span>
         <input
           type="text"
           className="font-3xl width50"
           value={showMin}
           onChange={(e) => updateMin(e)}
         />
+        <span>Min</span>
         <input
           type="text"
           className="font-3xl width50"
           value={showSec}
           onChange={(e) => updateSec(e)}
-        />
+        />{" "}
+        <span>Sec</span>
       </div>
       <div className="flex gap10 mt-30">
         <button className="button-2 pointer" onClick={stop}>

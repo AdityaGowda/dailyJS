@@ -50,7 +50,7 @@ export default function SearchBar() {
 
   return (
     <div className="center-div flex-col p-20">
-      <h className="font-xl mb-20">Search Bar</h>
+      <h1 className="font-xl mb-20">Search Bar</h1>
       <input
         type="text"
         value={searchedText}

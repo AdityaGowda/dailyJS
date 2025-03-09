@@ -46,8 +46,9 @@ export default function StopWatch() {
 
   return (
     <div className="center-div flex flex-col ">
+      <h1>StopWatch</h1>
       <p className="font-3xl flex">{stopwatchTimer}</p>
-      <div className="flex gap-10 mt-10">
+      <div className="flex gap20 mt-10">
         <button className="button-2 pointer" onClick={stopTimer}>
           Stop
         </button>

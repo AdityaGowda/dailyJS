@@ -50,7 +50,7 @@ export default function Pagination() {
       <h1 className="text-center mb-20">Pagination</h1>
 
       {/* Pagination container */}
-      <div className="flex align-center wrap justify-center gap-20 m-30">
+      <div className="flex align-center wrap justify-center gap20 m-30">
         {/* Previous button */}
         <span
           className={`button-2 bgBlack colorWhite ${

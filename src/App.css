@@ -77,6 +77,9 @@ body {
 .gap10 {
   gap: 10px;
 }
+.gap20 {
+  gap: 20px;
+}
 /* Margin Utility Classes */
 .m-0 {
   margin: 0px !important;
@@ -417,7 +420,9 @@ input[type="text"]::placeholder {
 .text-left {
   text-align: left;
 }
-
+.text-center {
+  text-align: center;
+}
 .align-start {
   align-items: start;
 }
@@ -479,4 +484,39 @@ input[type="text"]::placeholder {
   caret-color: transparent;
   transition: transform 0.3s ease-in-out;
   transform: rotate(-180deg);
+}
+
+.colorWhite {
+  color: white;
+}
+.bgWhite {
+  background-color: white;
+}
+
+.bgBlack {
+  background-color: black;
+}
+.bgBlue {
+  background-color: #151ae7c7;
+}
+
+.pos-rel {
+  position: relative;
+}
+.pos-ab {
+  position: absolute;
+}
+
+.op-0 {
+  opacity: 0;
+}
+
+.op-1 {
+  opacity: 1;
+}
+.visibleNone {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
 }

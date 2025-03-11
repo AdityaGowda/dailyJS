@@ -12,6 +12,7 @@ import StarRating from "./comp/ratingSystem/ratingSystem";
 import SearchBar from "./comp/searchbar/searchbar";
 import StopWatch from "./comp/stopwatch/stopwatch";
 import Home from "./comp/home/home";
+import Pagination from "./comp/Pagination/pagination";
 
 // Store all components in an object
 const components = {
@@ -24,6 +25,7 @@ const components = {
   StarRating,
   SearchBar,
   StopWatch,
+  Pagination,
 };
 
 function App() {
@@ -46,7 +48,7 @@ function App() {
           })}
         </Routes>
       </Router>
-    </>
+   </>
   );
 }
 

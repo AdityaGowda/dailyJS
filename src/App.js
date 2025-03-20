@@ -13,6 +13,7 @@ import SearchBar from "./comp/searchbar/searchbar";
 import StopWatch from "./comp/stopwatch/stopwatch";
 import Home from "./comp/home/home";
 import Pagination from "./comp/Pagination/pagination";
+import TabForm from "./comp/tab-form/tab-form";
 
 // Store all components in an object
 const components = {
@@ -26,6 +27,7 @@ const components = {
   SearchBar,
   StopWatch,
   Pagination,
+  TabForm,
 };
 
 function App() {
@@ -48,7 +50,7 @@ function App() {
           })}
         </Routes>
       </Router>
-   </>
+    </>
   );
 }
 

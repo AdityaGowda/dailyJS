@@ -355,7 +355,8 @@ body {
   border-radius: 10px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   width: 93%;
   max-width: 400px;
   padding: 10px 15px;
@@ -442,6 +443,16 @@ input[type="text"]::placeholder {
 .homeContainer {
   gap: 10px;
 }
+.box{
+  width: 93%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3sease-in-out;
+}
 /* :::::::::::: accordion ::::::::::::: */
 .accordionContainer {
   width: 93%;
@@ -519,4 +530,11 @@ input[type="text"]::placeholder {
 }
 .visible {
   visibility: visible;
+}
+
+.tabName span {
+  border: 1px solid black;
+  padding: 10px 15px;
+  align-items: end;
+  justify-items: end;
 }

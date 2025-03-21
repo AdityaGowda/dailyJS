@@ -15,7 +15,7 @@ export default function Tab2({ setFormData }) {
           value="Male"
           name="gender"
           onChange={(e) => handleFormData(e)}
-        />{" "}
+        />
         Male
       </label>
       <label>

@@ -11,8 +11,7 @@ export default function Tab3({ setFormData, formData }) {
         : prev.hobbies.filter((v) => {
             return v != v;
           });
-      console.log(updatedHobbies);
-      console.log(hobbies.includes("Reading"), hobbies, "-------------------");
+
       return { ...prev, hobbies: [...updatedHobbies] };
     });
   }

@@ -1,7 +1,6 @@
 export default function Tab3({ setFormData, formData }) {
   // Ensure hobbies is always an array
   const { hobbies } = formData;
-  console.log(formData.hobbies, "----------i");
   function handleFormData(e) {
     let value = e.target.key;
 

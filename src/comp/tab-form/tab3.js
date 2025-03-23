@@ -1,53 +1,33 @@
-export default function Tab3({ setFormData, formData }) {
-  // Ensure hobbies is always an array
-  const { hobbies } = formData;
-  function handleFormData(e) {
-    let value = e.target.key;
+import { useState, useEffect } from "react";
 
+export default function Tab3({ setFormData, hobbies }) {
+  function handleFormData(e, i) {
     setFormData((prev) => {
-      const updatedHobbies = e.target.checked
-        ? [...prev.hobbies, value]
-        : prev.hobbies.filter((v) => {
-            return v != v;
-          });
-
-      return { ...prev, hobbies: [...updatedHobbies] };
+      let updatedHobbies = { ...prev };
+      updatedHobbies.hobbies[i].ischecked =
+        !updatedHobbies.hobbies[i].ischecked;
+      return updatedHobbies;
     });
   }
 
   return (
     <div className="flex flex-col gap-2">
       <label>Hobbies:</label>
-      <label>
-        <input
-          type="checkbox"
-          value="cricket"
-          onChange={handleFormData}
-          name="cricket"
-          checked={hobbies.includes("cricket")}
-        />
-        Cricket
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="Reading"
-          name="Reading"
-          onChange={handleFormData}
-          checked={hobbies.includes("Reading")}
-        />
-        Reading
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="TV"
-          name="TV"
-          onChange={handleFormData}
-          checked={hobbies.includes("TV")}
-        />
-        TV
-      </label>
+      {hobbies.length > 0 &&
+        hobbies.map((v, i) => {
+          return (
+            <label key={i}>
+              <input
+                type="checkbox"
+                value={v.name}
+                onChange={(e) => handleFormData(e, i)}
+                name={v.name}
+                checked={v.ischecked}
+              />
+              {v.name}
+            </label>
+          );
+        })}
     </div>
   );
 }

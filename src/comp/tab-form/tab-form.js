@@ -9,11 +9,16 @@ export default function TabForm() {
     firstName: "",
     lastName: "",
     age: "",
-    hobbies: [],
+    hobbies: [
+      { name: "Reading", ischecked: false },
+      { name: "PlayingCricket", ischecked: false },
+      { name: "Watching TV", ischecked: false },
+    ],
     gender: "",
   });
   const [tab, setTab] = useState(0);
   const [tabDetails, setTabDetails] = useState("");
+  const [showFormData, setShowFormData] = useState(false);
 
   const Tabs = [
     {
@@ -26,20 +31,22 @@ export default function TabForm() {
     },
     {
       tab: "Tab 3",
-      component: <Tab3 setFormData={setFormData} formData={formData} />,
+      component: <Tab3 setFormData={setFormData} hobbies={formData.hobbies} />,
     },
   ];
-
+  function handleSubmit() {
+    setShowFormData(true);
+  }
   function handleTab(index) {
     setTab(index);
   }
-  console.log(Object.values(formData));
 
   useEffect(() => {
     setTabDetails(Tabs[tab].component);
   }, [tab]);
   return (
     <div className="center-div align-start flex-col">
+      {showFormData && <>{formData}</>}
       <div className="flex tabName gap10 mb-20 ">
         {Tabs.map((v, i) => {
           return (
@@ -55,6 +62,13 @@ export default function TabForm() {
         })}
       </div>
       {tabDetails}
+      <div className="text-end  width100">
+        {tab == Tabs.length - 1 && (
+          <button onClick={handleSubmit} className="pointer">
+            Submit
+          </button>
+        )}
+      </div>
     </div>
   );
 }

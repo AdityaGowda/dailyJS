@@ -417,6 +417,9 @@ input[type="text"]::placeholder {
   padding: 5px;
   scroll-snap-align: center;
 }
+.text-end {
+  text-align: end;
+}
 
 .text-left {
   text-align: left;
@@ -443,15 +446,15 @@ input[type="text"]::placeholder {
 .homeContainer {
   gap: 10px;
 }
-.box{
+.box {
   width: 93%;
-    max-width: 400px;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    transition: all 0.3sease-in-out;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3sease-in-out;
 }
 /* :::::::::::: accordion ::::::::::::: */
 .accordionContainer {

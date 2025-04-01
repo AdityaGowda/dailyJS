@@ -31,7 +31,7 @@ export default function TabForm() {
     },
     {
       tab: "Tab 3",
-      component: <Tab3 setFormData={setFormData} hobbies={formData.hobbies} />,
+      component: <Tab3 setFormData={setFormData} formData={formData} />,
     },
   ];
   function handleSubmit() {

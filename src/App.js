@@ -14,6 +14,7 @@ import StopWatch from "./comp/stopwatch/stopwatch";
 import Home from "./comp/home/home";
 import Pagination from "./comp/Pagination/pagination";
 import TabForm from "./comp/tab-form/tab-form";
+import OtpInput from "./comp/otpInput/otp";
 
 // Store all components in an object
 const components = {
@@ -28,6 +29,7 @@ const components = {
   StopWatch,
   Pagination,
   TabForm,
+  OtpInput,
 };
 
 function App() {

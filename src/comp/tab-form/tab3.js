@@ -1,28 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function Tab3({ setFormData, hobbies }) {
-  function handleFormData(e, i) {
+export default function Tab3({ setFormData, formData }) {
+  function handleFormData(i) {
     setFormData((prev) => {
-      let updatedHobbies = { ...prev };
-      updatedHobbies.hobbies[i].ischecked =
-        !updatedHobbies.hobbies[i].ischecked;
-      return updatedHobbies;
+      // Create a copy of the hobbies array
+      let updatedHobbies = [...prev.hobbies];
+      // Toggle the ischecked property of the selected hobby
+      updatedHobbies[i].ischecked = !updatedHobbies[i].ischecked;
+      // Return a new object with the updated hobbies array
+      console.log("Updated Hobbies:", updatedHobbies);
+      return { ...prev, hobbies: updatedHobbies }; // Ensure to spread prev to keep other formData intact
     });
   }
 
   return (
     <div className="flex flex-col gap-2">
       <label>Hobbies:</label>
-      {hobbies.length > 0 &&
-        hobbies.map((v, i) => {
+      {formData.hobbies.length > 0 &&
+        formData.hobbies.map((v, i) => {
           return (
-            <label key={i}>
+            <label>
               <input
+                key={i}
                 type="checkbox"
-                value={v.name}
-                onChange={(e) => handleFormData(e, i)}
                 name={v.name}
                 checked={v.ischecked}
+                onChange={() => handleFormData(i)} // Move onChange to the input
               />
               {v.name}
             </label>

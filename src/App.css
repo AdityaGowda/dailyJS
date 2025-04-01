@@ -542,6 +542,10 @@ input[type="text"]::placeholder {
   justify-items: end;
 }
 
-.otpInputBox{
-  
+.otpInputBox {
+  border: 1px solid black;
+  height: 50px;
+  width: 20px;
+  font-size: 30px !important;
+  text-align: center;
 }

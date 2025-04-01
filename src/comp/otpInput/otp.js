@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function OtpInput() {
   // State to store OTP values (array of 5 empty strings)
-  const [otpValue, setOtpValue] = useState(Array(5).fill(""));
+  const [otpValue, setOtpValue] = useState(Array(4).fill(""));
 
   // useRef to store references of input elements
   const otpInputRef = useRef([]);
@@ -14,6 +14,7 @@ export default function OtpInput() {
    * - Moves focus to the next input automatically when a digit is entered.
    */
   function handleOtpInput(e, index) {
+    console.log(e.key);
     if (isNaN(e.target.value)) return; // Prevent non-numeric input
 
     setOtpValue((prev) => {
@@ -32,17 +33,19 @@ export default function OtpInput() {
    * Handles keyboard events for OTP fields.
    * - Moves focus back to the previous input when "Backspace" is pressed.
    */
-  function handleFocus(index, e) {
-    if (index > 0 && otpValue[index] === "" && e.code === "Backspace") {
+  function handleBackSpaceFocus(e, index) {
+    if (index > 0 && e.target.value === "" && e.code === "Backspace") {
       otpInputRef.current[index - 1].focus(); // Move focus to the previous input
     }
   }
-
+  useEffect(() => {
+    otpInputRef.current[0].focus();
+  }, []);
   return (
     <div className="center-div flex flex-col">
       <h1 className="m-0 mb-10">Enter OTP</h1>
-      <div className="flex align-center gap10 mt-10">
-        {otpValue.map((v, i) => {
+      <div className="flex align-center gap20 mt-20">
+        {otpValue.map((_, i) => {
           return (
             <input
               type="text"
@@ -50,8 +53,8 @@ export default function OtpInput() {
               key={i}
               value={otpValue[i]}
               ref={(el) => (otpInputRef.current[i] = el)} // Store input refs
-              onChange={(e) => handleOtpInput(e, i)}
-              onKeyDown={(e) => handleFocus(i, e)}
+              onInput={(e) => handleOtpInput(e, i)}
+              onKeyUp={(e) => handleBackSpaceFocus(e, i)}
             />
           );
         })}

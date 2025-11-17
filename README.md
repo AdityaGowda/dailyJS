@@ -19,7 +19,7 @@ It’s designed for developers who want to sharpen their skills in JavaScript, f
    ```bash  
    git clone https://github.com/AdityaGowda/dailyJS.git  
    cd dailyJS
-   npm run dev
+   npm start
    ```
 
 

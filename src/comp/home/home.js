@@ -6,7 +6,7 @@ export default function Home({ componentNames }) {
   return (
     <center className="p-30 ">
       <h1>Daily React & JS Challenges</h1>
-      <div className="homeContainer flex flex-col align-center">
+      <div className="homeContainer grid  grid-repeat-4 p-20">
         {components.map((v, i) => (
           <Link
             to={`/${v.toLowerCase()}`}

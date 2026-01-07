@@ -16,6 +16,8 @@ import Pagination from "./comp/Pagination/pagination";
 import TabForm from "./comp/tab-form/tab-form";
 import OtpInput from "./comp/otpInput/otp";
 import TicTacToe from "./comp/ticTacToe/TicTacToe";
+import TransferList from "./comp/transferList/tranferList";
+import GridToggle from "../grid_toggle";
 
 // Store all components in an object
 const components = {
@@ -32,6 +34,8 @@ const components = {
   TabForm,
   OtpInput,
   TicTacToe,
+  GridToggle,
+  TransferList
 };
 
 function App() {
